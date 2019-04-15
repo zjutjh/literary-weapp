@@ -45,12 +45,12 @@ const config = {
             ]
           }
         },
-        pxtransform: {
-          enable: true,
-          config: {
-
-          }
-        },
+        // pxtransform: {
+        //   enable: true,
+        //   config: {
+        //     propList: ['*', '!font*'],
+        //   }
+        // },
         url: {
           enable: true,
           config: {
@@ -70,6 +70,7 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['taro-ui'],
     module: {
       postcss: {
         autoprefixer: {
@@ -82,6 +83,12 @@ const config = {
             ]
           }
         },
+        // pxtransform: {
+        //   enable: true,
+        //   config: {
+        //     propList: ['*', '!font*'],
+        //   }
+        // },
         cssModules: {
           enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
           config: {

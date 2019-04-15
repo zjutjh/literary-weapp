@@ -3,7 +3,8 @@ import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 
 import Index from './pages/index'
-
+import API from './api'
+import fetch from './fetch'
 import configStore from './store'
 
 import './app.scss'
@@ -13,15 +14,33 @@ import './app.scss'
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
 //   require('nerv-devtools')
 // }
-
+Taro.API = API
+Taro.fetch = fetch
 const store = configStore()
 
 class App extends Component {
 
   config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/mine/index'
     ],
+    tabBar: {
+      list: [
+        {
+          pagePath: 'pages/index/index',
+          text: '首页',
+          iconPath: 'images/home.png',
+          selectedIconPath: 'images/home-fill.png'
+        },
+        {
+          pagePath: 'pages/mine/index',
+          text: '我的',
+          iconPath: 'images/build.png',
+          selectedIconPath: 'images/build-fill.png'
+        }
+      ]
+    },
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',

@@ -1,29 +1,21 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-
-import { add, minus, asyncAdd } from '../../actions/counter'
-
+import BookPartyList from '../../components/book-party-list'
+import Actions from './actions'
 import './index.scss'
 
-
-@connect(({ counter }) => ({
-  counter
-}), (dispatch) => ({
-  add () {
-    dispatch(add())
-  },
-  dec () {
-    dispatch(minus())
-  },
-  asyncAdd () {
-    dispatch(asyncAdd())
-  }
-}))
+@connect(({ bookPartyList }) => ({
+  bookPartyList
+}), Actions)
 class Index extends Component {
 
-    config = {
+  config = {
     navigationBarTitleText: '首页'
+  }
+
+  componentDidMount () {
+    this.props.getBookPartyList()
   }
 
   componentWillReceiveProps (nextProps) {
@@ -32,18 +24,23 @@ class Index extends Component {
 
   componentWillUnmount () { }
 
-  componentDidShow () { }
+  componentDidShow () {
+  }
 
   componentDidHide () { }
 
+  handleClick = () => {
+
+  }
+
   render () {
+    const { bookPartyList } = this.props
     return (
-      <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>Hello, World</Text></View>
+      <View className='m-page'>
+        <View className='u-title'>读书会</View>
+        <View>
+          <BookPartyList list={bookPartyList} />
+        </View>
       </View>
     )
   }

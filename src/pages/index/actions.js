@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import * as Constants from './constants'
 
-function getBookPartyList () {
+function dispatchBookPartyList () {
   return dispatch => {
     Taro.fetch({
       url: Taro.API('book-list/get')
@@ -15,5 +15,5 @@ function getBookPartyList () {
 }
 
 export default {
-  getBookPartyList
+  dispatchBookPartyList
 }

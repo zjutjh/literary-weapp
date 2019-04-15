@@ -15,7 +15,7 @@ class Index extends Component {
   }
 
   componentDidMount () {
-    this.props.getBookPartyList()
+    this.props.dispatchBookPartyList()
   }
 
   componentWillReceiveProps (nextProps) {

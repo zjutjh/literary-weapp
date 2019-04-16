@@ -13,7 +13,7 @@ class BookPartyItem extends Component {
     const { data } = this.props
     if (data && data.id) {
       Taro.navigateTo({
-        url: `/pages/page/path/name?id=${data.id}`
+        url: `/pages/book-party/detail/index?id=${data.id}`
       })
     }
   }

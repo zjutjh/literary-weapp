@@ -1,0 +1,57 @@
+@import "~taro-ui/dist/style/components/button.scss";
+
+.m-book-party-detail {
+  position: relative;
+  margin-top: 20px;
+  padding: 8px;
+  margin-bottom: 60px;
+  background: linear-gradient(45deg,#f25953 12.5%,#fbfaf5 12.5%,#fbfaf5 25%,#5590d6 25%,#5590d6 37.5%,#fbfaf5 37.5%,#fbfaf5 50%,#f25953 50%,#f25953 62.5%,#fbfaf5 62.5%,#fbfaf5 75%,#5590d6 75%,#5590d6 87.5%,#fbfaf5 87.5%,#fbfaf5 100%);
+  box-shadow: 1px 5px 12px rgba(0, 0, 0, .2);
+  background-size: 70px 70px;
+
+  &-header {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    color: #333333;
+    height: 60px;
+    width: 300px;
+    margin: 0 auto;
+    font-size: 48px;
+    text-align: center;
+    border-bottom: 6px solid #333333;
+    transform: translateX(-50%);
+  }
+
+  &-content {
+    padding: 160px 40px 120px;
+    background-color: #fbfaf5;
+    font-size: 24px;
+    color: #333333;
+  }
+
+  &-info-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-info-item {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-info-label {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  &-info-content {
+    font-size: 28px;
+    border-bottom: 1px solid #333333;
+  }
+}
+
+.m-button {
+  box-shadow: 1px 5px 12px rgba(0, 0, 0, .2);
+}

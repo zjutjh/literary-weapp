@@ -12,6 +12,10 @@ class Index extends Component {
     navigationBarTitleText: '我的'
   }
 
+  componentDidMount () {
+    console.log(this.props)
+  }
+
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }

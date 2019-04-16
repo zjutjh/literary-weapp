@@ -5,21 +5,23 @@ import BookPartyList from '../../components/book-party-list'
 import Actions from './actions'
 import './index.scss'
 
-@connect(({ bookPartyList }) => ({
+@connect(({ index: { bookPartyList } }) => ({
   bookPartyList
 }), Actions)
 class Index extends Component {
 
   config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '首页',
+    enablePullDownRefresh: true,
+    backgroundTextStyle: 'dark'
   }
 
   componentDidMount () {
     this.props.dispatchBookPartyList()
   }
 
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+  onPullDownRefresh () {
+    this.props.dispatchBookPartyList()
   }
 
   componentWillUnmount () { }

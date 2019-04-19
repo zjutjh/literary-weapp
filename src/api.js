@@ -5,7 +5,9 @@ const isDev = env === 'development' && (typeof wx === 'undefined' || wx.getSyste
 
 const apiMap = {
   'book-list/get': 'book-party/list',
-  'book-party/detail': 'book-party/detail'
+  'book-party/detail': 'book-party/detail',
+  'login': 'login/weapp',
+  'user-info': 'user',
 }
 
 const domain = isDev ? 'http://beauty-book.test/api/' : ''

@@ -1,6 +1,12 @@
 import Taro from '@tarojs/taro'
 
 export default function (payload) {
+  const token = Taro.getStorageSync('token') || ''
+  if (token) {
+    payload.header = Object.assign({}, payload.header, {
+      Authorization: 'Bearer ' + token
+    })
+  }
   return Taro.request(payload).then(response => {
     const { data } = response
     if (!data || data.code !== 0) {

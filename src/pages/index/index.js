@@ -5,8 +5,9 @@ import BookPartyList from '../../components/book-party-list'
 import Actions from './actions'
 import './index.scss'
 
-@connect(({ index: { bookPartyList } }) => ({
-  bookPartyList
+@connect(({ index: { bookPartyList }, auth: { token } }) => ({
+  bookPartyList,
+  token
 }), Actions)
 class Index extends Component {
 
@@ -18,9 +19,12 @@ class Index extends Component {
 
   componentDidMount () {
     this.props.dispatchBookPartyList()
+    if (this.props.token) {
+      this.props.dispatchGetUserInfo()
+    }
   }
 
-  onPullDownRefresh () {
+  onPullDownRefresh = () => {
     this.props.dispatchBookPartyList()
   }
 
@@ -30,10 +34,6 @@ class Index extends Component {
   }
 
   componentDidHide () { }
-
-  handleClick = () => {
-
-  }
 
   render () {
     const { bookPartyList } = this.props

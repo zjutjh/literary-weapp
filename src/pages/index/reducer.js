@@ -7,8 +7,10 @@ const INITIAL_STATE = {
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case Constants.INDEX_GET_BOOK_PARTY_LIST:
-      state.bookPartyList = action.data
-      return state
+      return {
+        ...state,
+        bookPartyList: action.data
+      }
     default:
       return state
   }

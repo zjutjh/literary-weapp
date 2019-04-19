@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'book',
   date: '2019-4-3',
@@ -23,6 +25,13 @@ const config = {
         'transform-object-rest-spread'
       ]
     }
+  },
+  alias: {
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/api': path.resolve(__dirname, '..', 'src/api.js'),
+    '@/util': path.resolve(__dirname, '..', 'src/utils'),
+    '@/constant': path.resolve(__dirname, '..', 'src/constants'),
+    '@/fetch': path.resolve(__dirname, '..', 'src/fetch.js')
   },
   defineConstants: {
   },

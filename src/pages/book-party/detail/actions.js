@@ -11,7 +11,7 @@ function dispatchBookPartyDetail (id) {
       }
     }).then(res => {
       dispatch({
-        type: Constants.AUTH_LOGIN,
+        type: Constants.BOOK_PARTY_GET_DETAIL,
         data: res.data
       })
     })

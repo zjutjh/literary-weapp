@@ -23,6 +23,7 @@ class App extends Component {
       'pages/mine/book-party/sign-up/index',
       'pages/login/index',
       'pages/mine/index',
+      'pages/mine/user-info/index',
       'pages/book-party/detail/index',
     ],
     tabBar: {

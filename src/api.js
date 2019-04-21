@@ -11,10 +11,12 @@ const apiMap = {
   'user/book-party/sign-up': 'user/book-party/sign-up',
   'user/book-party/check-in': 'user/book-party/check-in',
   'login': 'login/weapp',
+  'institute/list': 'institute/list',
   'user-info': 'user',
+  'user/user-info': 'user/user-info',
 }
 
-const domain = isDev ? 'http://beauty-book.test/api/' : ''
+const domain = isDev ? 'http://beauty-book.test/api/' : 'http://server.book.zjutjh.com/api/'
 
 export default function (key) {
   return url.resolve(domain, apiMap[key])

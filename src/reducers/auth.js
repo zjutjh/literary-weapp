@@ -18,6 +18,11 @@ export default function (state = INITIAL_STATE, action) {
         ...state,
         userInfo: action.data
       }
+    case Constants.AUTH_UPDATE_USER_INFO:
+      return {
+        ...state,
+        userInfo: action.data
+      }
     default:
       return state
   }

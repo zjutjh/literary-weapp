@@ -47,6 +47,12 @@ class Index extends Component {
     })
   }
 
+  goMineBookUserInfo = () => {
+    Taro.navigateTo({
+      url: `/pages/mine/user-info/index`
+    })
+  }
+
   render () {
     return (
       <View className='m-page'>
@@ -60,7 +66,7 @@ class Index extends Component {
               <AtListItem title='学号' note={this.props.userInfo.sid} />
               <AtListItem title='我的报名' arrow='right' onClick={this.goMineBookPartySignUp} />
               <AtListItem title='我的签到' arrow='right' onClick={this.goMineBookPartyCheckIn} />
-              <AtListItem title='我的信息' arrow='right' extraText='修改' />
+              <AtListItem title='我的信息' arrow='right' onClick={this.goMineBookUserInfo} extraText='修改' />
               <AtListItem title='重新登录' arrow='right' onClick={this.goLogin} />
             </AtList>
           ) : <AtButton type='primary' className='u-go-login' onClick={this.login}>登录</AtButton>

@@ -10,6 +10,11 @@ export default function (payload) {
   return Taro.request(payload).then(response => {
     const { data } = response
     if (!data || data.code !== 0) {
+      if (data.code === 401) {
+        Taro.navigateTo({
+          url: `/pages/login/index`
+        })
+      }
       throw new Error(data.error || '网络错误')
     }
     return data

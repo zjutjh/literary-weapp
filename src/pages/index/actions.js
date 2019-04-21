@@ -1,3 +1,4 @@
+import Taro  from '@tarojs/taro'
 import fetch from '@/fetch'
 import API from '@/api'
 import * as CommonConstants from '@/constant'
@@ -12,6 +13,7 @@ function dispatchBookPartyList () {
         type: Constants.INDEX_GET_BOOK_PARTY_LIST,
         data: res.data
       })
+      Taro.stopPullDownRefresh()
     })
   }
 }

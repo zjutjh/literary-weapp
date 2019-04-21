@@ -27,7 +27,7 @@ const config = {
     }
   },
   alias: {
-    '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/component': path.resolve(__dirname, '..', 'src/components'),
     '@/api': path.resolve(__dirname, '..', 'src/api.js'),
     '@/util': path.resolve(__dirname, '..', 'src/utils'),
     '@/constant': path.resolve(__dirname, '..', 'src/constants'),

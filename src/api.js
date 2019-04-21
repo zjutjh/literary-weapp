@@ -1,11 +1,15 @@
 import url from 'url'
 
 const env = process.env.NODE_ENV || 'development'
-const isDev = env === 'development' && (typeof wx === 'undefined' || wx.getSystemInfoSync().platform === 'devtools')
+const isDev = env === 'development'
 
 const apiMap = {
   'book-list/get': 'book-party/list',
   'book-party/detail': 'book-party/detail',
+  'book-party/sign-up': 'book-party/sign-up',
+  'book-party/check-in': 'book-party/check-in',
+  'user/book-party/sign-up': 'user/book-party/sign-up',
+  'user/book-party/check-in': 'user/book-party/check-in',
   'login': 'login/weapp',
   'user-info': 'user',
 }

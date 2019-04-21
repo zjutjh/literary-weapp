@@ -19,6 +19,8 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
+      'pages/mine/book-party/check-in/index',
+      'pages/mine/book-party/sign-up/index',
       'pages/login/index',
       'pages/mine/index',
       'pages/book-party/detail/index',

@@ -22,6 +22,9 @@ class Index extends Component {
   }
 
   componentDidMount () {
+    this.setState({
+      username: this.$router.params.username
+    })
   }
 
   componentWillUnmount () { }
@@ -47,8 +50,9 @@ class Index extends Component {
       this.props.dispatchGetUserInfo()
       Taro.showToast({
         title: '登陆成功'
+      }).then(() => {
+        Taro.navigateBack({ delta: 1 })
       })
-      Taro.navigateBack({ delta: 1 })
     })
   }
 

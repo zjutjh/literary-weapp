@@ -29,6 +29,24 @@ class Index extends Component {
     util.doIfLogin()
   }
 
+  goLogin = () => {
+    Taro.navigateTo({
+      url: `/pages/login/index?username=${this.props.userInfo.sid}`
+    })
+  }
+
+  goMineBookPartyCheckIn = () => {
+    Taro.navigateTo({
+      url: `/pages/mine/book-party/check-in/index`
+    })
+  }
+
+  goMineBookPartySignUp = () => {
+    Taro.navigateTo({
+      url: `/pages/mine/book-party/sign-up/index`
+    })
+  }
+
   render () {
     return (
       <View className='m-page'>
@@ -40,10 +58,10 @@ class Index extends Component {
           this.props.userInfo ? (
             <AtList>
               <AtListItem title='学号' note={this.props.userInfo.sid} />
-              <AtListItem title='我的报名' arrow='right' />
-              <AtListItem title='我的签到' arrow='right' />
+              <AtListItem title='我的报名' arrow='right' onClick={this.goMineBookPartySignUp} />
+              <AtListItem title='我的签到' arrow='right' onClick={this.goMineBookPartyCheckIn} />
               <AtListItem title='我的信息' arrow='right' extraText='修改' />
-              <AtListItem title='重新登录' arrow='right' />
+              <AtListItem title='重新登录' arrow='right' onClick={this.goLogin} />
             </AtList>
           ) : <AtButton type='primary' className='u-go-login' onClick={this.login}>登录</AtButton>
         }

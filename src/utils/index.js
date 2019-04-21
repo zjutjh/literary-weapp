@@ -13,6 +13,7 @@ export function doIfLogin (func) {
     Taro.navigateTo({
       url: '/pages/login/index'
     })
+    return Promise.reject()
   }
 }
 
@@ -54,7 +55,7 @@ export function login (username, password) {
 }
 
 export function loginWithToken () {
-  
+
 }
 
 export default {

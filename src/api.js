@@ -16,7 +16,7 @@ const apiMap = {
   'user/user-info': 'user/user-info',
 }
 
-const domain = isDev ? 'http://beauty-book.test/api/' : 'http://server.book.zjutjh.com/api/'
+const domain = isDev ? 'http://beauty-book.test/api/' : 'https://server.book.zjutjh.com/api/'
 
 export default function (key) {
   return url.resolve(domain, apiMap[key])

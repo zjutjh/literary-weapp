@@ -93,6 +93,12 @@ export default class BookPartyDetail extends Component {
                   </View>
                 </View>
               </View>
+              <View className={`${prefixClassName}-info-list`}>
+                <View className={`${prefixClassName}-info-item`}>
+                  <View className={`${prefixClassName}-info-label`}>简介</View>
+                  <View className={`${prefixClassName}-info-content`}>{detail.summary}</View>
+                </View>
+              </View>
             </View>
           </View>
           { detail.isSignup ?

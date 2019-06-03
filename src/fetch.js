@@ -11,6 +11,7 @@ export default function (payload) {
     const { data } = response
     if (!data || data.code !== 0) {
       if (data.code === 401) {
+        Taro.setStorageSync('token', '')
         Taro.navigateTo({
           url: `/pages/login/index`
         })

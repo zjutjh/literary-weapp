@@ -9,7 +9,11 @@ function dispatchGetUserInfo () {
     }).then(res => {
       dispatch({
         type: Constants.AUTH_GET_USER_INFO,
-        data: res.data
+        data: res.data.user
+      })
+      dispatch({
+        type: Constants.AUTH_LOGIN,
+        token: res.data.token
       })
     })
   }

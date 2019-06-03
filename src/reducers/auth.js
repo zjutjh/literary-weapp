@@ -9,10 +9,14 @@ const INITIAL_STATE = {
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case Constants.AUTH_LOGIN:
-      return {
-        ...state,
-        token: action.token
+      if (action.token) {
+        Taro.setStorageSync('token', action.token)
+        return {
+          ...state,
+          token: action.token
+        }
       }
+      return state
     case Constants.AUTH_GET_USER_INFO:
       return {
         ...state,

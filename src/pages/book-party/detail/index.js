@@ -27,6 +27,10 @@ export default class BookPartyDetail extends Component {
     this.props.dispatchBookPartyDetail(this.$router.params.id)
   }
 
+  componentDidShow () {
+    this.props.dispatchBookPartyDetail(this.$router.params.id)
+  }
+
   signUp = () => {
     util.doIfLogin().then(() => {
       this.props.dispatchBookPartySignUp(this.state.id)

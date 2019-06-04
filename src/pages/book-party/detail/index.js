@@ -7,8 +7,9 @@ import Actions from './actions'
 import './index.scss'
 
 const prefixClassName = 'm-book-party-detail'
-@connect(({ bookPartyDetail: { detail }  }) => ({
-  detail
+@connect(({ bookPartyDetail: { detail }, auth: { userInfo } }) => ({
+  detail,
+  userInfo
 }), Actions)
 export default class BookPartyDetail extends Component {
 
@@ -33,7 +34,22 @@ export default class BookPartyDetail extends Component {
 
   signUp = () => {
     util.doIfLogin().then(() => {
-      this.props.dispatchBookPartySignUp(this.state.id)
+      const { userInfo } = this.props
+      if (userInfo.name && userInfo.mobile && userInfo.instituteId) {
+        this.props.dispatchBookPartySignUp(this.state.id)
+      } else {
+        Taro.showToast({
+          icon: 'none',
+          title: '请先填写信息'
+        }).then(() =>
+          setTimeout(() => {
+            Taro.navigateTo({
+              url: '/pages/mine/user-info/index'
+            })
+          }, 1500)
+        )
+
+      }
     })
   }
 

@@ -21,7 +21,7 @@ class BookPartyItem extends Component {
   render () {
     const { data } = this.props
     return (
-      <View className={prefixClassName} onClick={this.handleClick}>
+      <View className={[prefixClassName, data && data.status === 1 ? `${prefixClassName}-close` : ''].join(' ')} onClick={this.handleClick}>
         <View className={`${prefixClassName}-title`}>{data.title}</View>
         <View className={`${prefixClassName}-divider`} />
         <View className={`${prefixClassName}-content`}>

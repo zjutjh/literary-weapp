@@ -1,5 +1,3 @@
-import url from 'url'
-
 const env = process.env.NODE_ENV || 'development'
 const isDev = env === 'development'
 
@@ -19,5 +17,5 @@ const apiMap = {
 const domain = isDev ? 'http://beauty-book.test/api/' : 'https://server.book.zjutjh.com/api/'
 
 export default function (key) {
-  return url.resolve(domain, apiMap[key])
+  return domain + apiMap[key]
 }

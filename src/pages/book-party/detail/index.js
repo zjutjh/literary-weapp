@@ -121,9 +121,9 @@ export default class BookPartyDetail extends Component {
               </View>
             </View>
           </View>
-          { detail.isSignup ?
-            !detail.isCheckin ? <AtButton type='primary' className='m-button' onClick={this.checkIn}>签到</AtButton> : null :
-            <AtButton type='primary' className='m-button' onClick={this.signUp}>报名</AtButton>
+          { detail.status === 1 ? <AtButton type='primary' className='m-button' disabled>已结束</AtButton> : (detail.isSignup ?
+            (!detail.isCheckin ? <AtButton type='primary' className='m-button' onClick={this.checkIn}>签到</AtButton> : null) :
+            <AtButton type='primary' className='m-button' onClick={this.signUp}>报名</AtButton>)
           }
         </View>
       )

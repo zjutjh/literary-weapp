@@ -82,8 +82,8 @@ class Index extends Component {
         <AtNoticebar icon='volume-plus'>请务必填写正确信息，用于加分</AtNoticebar>
         <View className='m-page'>
           <AtForm
-            onSubmit={this.onSubmit.bind(this)}
-            onReset={this.onReset.bind(this)}
+            onSubmit={this.onSubmit}
+            onReset={this.onReset}
             className='m-login-form'
           >
             <AtInput

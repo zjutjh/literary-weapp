@@ -60,8 +60,8 @@ class Index extends Component {
     return (
       <View className='m-page'>
         <AtForm
-          onSubmit={this.onSubmit.bind(this)}
-          onReset={this.onReset.bind(this)}
+          onSubmit={this.onSubmit}
+          onReset={this.onReset}
           className='m-login-form'
         >
           <AtAvatar size='large' image={logo} className='u-logo' />

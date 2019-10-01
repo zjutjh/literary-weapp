@@ -11,9 +11,18 @@ function dispatchBookPartyDetail (id) {
         bookPartyId: id
       }
     }).then(res => {
+      if (res.code !== 0) {
+        throw new Error(res.error)
+      }
       dispatch({
         type: Constants.BOOK_PARTY_GET_DETAIL,
         data: res.data
+      })
+    }).catch(e => {
+      Taro.showToast({
+        title: e.message || '发生错误'
+      }).then(() => {
+        Taro.navigateBack({ delta: 1 })
       })
     })
   }

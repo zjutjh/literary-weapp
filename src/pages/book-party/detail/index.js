@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtButton, AtCountdown } from 'taro-ui'
+import moment from 'moment'
 import { connect } from '@tarojs/redux'
 import util from '@/util'
 import Actions from './actions'
@@ -66,9 +67,9 @@ export default class BookPartyDetail extends Component {
     const gated = this.state.id && this.props.detail && this.props.detail[this.state.id]
     if (gated) {
       const detail = this.props.detail[this.state.id]
-      const startDate = new Date(detail.startTime)
       const now = new Date()
-      const diffTime = startDate.getTime() - now.getTime()
+      const isAfter = moment(detail.startTime).isAfter(now)
+      const diffTime = moment(detail.startTime).toDate().getTime() - now.getTime()
 
       return (
         <View className='m-page'>
@@ -105,7 +106,7 @@ export default class BookPartyDetail extends Component {
                 <View className={`${prefixClassName}-info-item`}>
                   <View className={`${prefixClassName}-info-label`}>距离开始</View>
                   <View className={`${prefixClassName}-info-content`}>
-                    { diffTime > 0 ? <AtCountdown
+                    { isAfter ? <AtCountdown
                       isShowDay
                       format={{ day: '天', hours: '小时', minutes: '分钟', seconds: '秒' }}
                       seconds={Math.max(0, parseInt(diffTime / 1000))}

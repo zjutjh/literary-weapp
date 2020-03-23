@@ -28,6 +28,7 @@ class Index extends Component {
       mobile: userInfo.mobile,
       instituteId: userInfo.instituteId,
       name: userInfo.name,
+      class: userInfo.class
     })
   }
 
@@ -63,7 +64,8 @@ class Index extends Component {
     this.props.dispatchUpdateUserInfo({
       name: this.state.name,
       mobile: this.state.mobile,
-      instituteId: this.state.instituteId
+      instituteId: this.state.instituteId,
+      class: this.state.class
     })
   }
 
@@ -122,6 +124,14 @@ class Index extends Component {
                 onChange={value => this.handleChangeInstitute(value)}
               />
             </Picker>
+            <AtInput
+              name='value'
+              title='班级'
+              type='text'
+              placeholder='请输入班级'
+              value={this.state.class}
+              onChange={value => this.handleChange('class')(value)}
+            />
             <AtButton formType='submit' type='primary' className='submit-button'>确认修改</AtButton>
           </AtForm>
         </View>
